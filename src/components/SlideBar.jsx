@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import {Outlet} from "react-router-dom";
-const { Header, Content, Footer, Sider } = Layout;
+import { AiFillPieChart } from "react-icons/ai";
+import { IoSettings } from "react-icons/io5";
+import { SiGoogleanalytics } from "react-icons/si";
+import { Layout, Menu, theme } from 'antd';
+import { Outlet, useNavigate } from "react-router-dom";
+import { FaFlag, FaUserAlt } from 'react-icons/fa';
+const { Sider } = Layout;
 
 function getItem(label, key, icon, children) {
+    // navigate(url);
     return {
         key,
         icon,
@@ -19,29 +17,36 @@ function getItem(label, key, icon, children) {
     };
 }
 const items = [
-    getItem('Option 1', '1', <PieChartOutlined />),
-    getItem('Option 2', '2', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, [
-        getItem('Tom', '3'),
-        getItem('Bill', '4'),
-        getItem('Alex', '5'),
-    ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-    getItem('Files', '9', <FileOutlined />),
+    getItem('Dashboard', '1', <AiFillPieChart />),
+    getItem('Users', '2', <FaUserAlt />),
+
+    getItem('Reports', '3', <FaFlag />),
+    getItem('Analytics', '4', <SiGoogleanalytics />),
+    getItem('Setting', '5', <IoSettings />),
 ];
+
+
 const SlideBar = () => {
+    const navigate = useNavigate();
+    const handleClick = (e) => {
+        const url = ["/", "/users", "/report", "/analytics", "/settings"];
+        navigate(url[e.key - 1]);
+    };
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: { colorBgContainer, borderRadiusLG },
+
+
     } = theme.useToken();
+
     return (
         <Layout style={{ minHeight: '90vh' }}>
-            <Sider className='bg-white' width={"16.666666%"} collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}  >
+            <Sider className='bg-white py-3' width={"16.666666%"} collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}  >
                 <div className="demo-logo-vertical" />
-                <Menu className='bg-white' defaultSelectedKeys={['1']} mode="inline" items={items} />
+                <Menu onClick={handleClick} className='bg-white' defaultSelectedKeys={['1']} mode="inline" items={items} />
             </Sider>
-            <Layout>
-               <Outlet/>
+            <Layout className='h-[92vh] overflow-y-auto'>
+                <Outlet />
             </Layout>
         </Layout>
     )
