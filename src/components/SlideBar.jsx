@@ -45,7 +45,7 @@ const SlideBar = () => {
                 <div className="demo-logo-vertical" />
                 <Menu onClick={handleClick} className='bg-white' defaultSelectedKeys={['1']} mode="inline" items={items} />
             </Sider>
-            <Layout className='h-[92vh] overflow-y-auto'>
+            <Layout className='h-[90.8vh] overflow-y-auto'>
                 <Outlet />
             </Layout>
         </Layout>

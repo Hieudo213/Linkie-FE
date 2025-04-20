@@ -6,6 +6,7 @@ import Analytics from "../pages/Analytics";
 import Report from "../pages/Report";
 import Setting from "../pages/Setting";
 import User from "../pages/User";
+import Login from "../pages/Login";
 
 export const router = createBrowserRouter([
     {
@@ -34,5 +35,10 @@ export const router = createBrowserRouter([
                 element: <User />,
             },
         ],
+
     },
+    {
+        path: "/login",
+        element: <Login />
+    }
 ]);
