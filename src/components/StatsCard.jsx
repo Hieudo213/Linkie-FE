@@ -75,7 +75,7 @@ const StatsCard = () => {
 
     return (
         <div className=" w-full bg-white rounded-lg shadow-sm p-4 md:p-6">
-            <div className="flex justify-between mb-5">
+            {/* <div className="flex justify-between mb-5">
                 <div className="grid gap-4 grid-cols-2">
                     <div>
                         <h5 className="inline-flex items-center text-gray-500 dark:text-gray-400 font-normal mb-2">
@@ -91,13 +91,13 @@ const StatsCard = () => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
 
             <div>
                 <ReactApexChart options={options} series={options.series} type="line" height={250} />
             </div>
 
-            <div className="grid grid-cols-1 border-t border-gray-200 dark:border-gray-700 mt-2.5">
+            {/* <div className="grid grid-cols-1 border-t border-gray-200 dark:border-gray-700 mt-2.5">
                 <div className="pt-5">
                     <a
                         href="#"
@@ -114,7 +114,7 @@ const StatsCard = () => {
                         View full report
                     </a>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

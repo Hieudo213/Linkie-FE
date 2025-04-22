@@ -44,12 +44,15 @@ const Dashboard = () => {
         <div className="w-full p-2  ">
             <Statistics data={dataSta} />
             <div className="w-full my-2 flex">
-                <ChartPie />
-                <RevenueCard />
+                <div className="w-1/3 pr-1">
+                    <ChartPie />
+                </div>
+                <div className="w-2/3 pl-1">
+                    <RevenueCard />
+                </div>
+
             </div>
-            <div className="w-full">
-                <StatsCard />
-            </div>
+
         </div>
     );
 };

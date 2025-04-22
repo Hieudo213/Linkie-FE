@@ -69,16 +69,9 @@ const ChartPie = () => {
     }, []);
 
     return (
-        <div className=" w-1/3 mx-1  bg-white rounded-lg shadow  p-4 ">
-            <div className="flex justify-between mb-3">
-                <div className="flex justify-center items-center">
-                    <h5 className="text-xl font-bold leading-none text-gray-900  pe-1">
-                        Gói dịch vụ
-                    </h5>
+        <div className=" w-full mx-1  bg-white rounded-lg shadow  p-4 ">
 
-                </div>
 
-            </div>
 
             <div className="py-6" ref={chartRef}></div>
         </div>
